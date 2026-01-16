@@ -7,8 +7,7 @@ import PageContainer from '../../components/molecules/PageContainer';
 function Homepage(){
     
     return(
-        <>
-            <PageContainer>
+        <div className="mt-26">
                 <img src='https://ssb.wiki.gallery/images/thumb/9/9e/ESAM_with_Pikachu.jpg/1200px-ESAM_with_Pikachu.jpg' className="h-32 w-32 rounded-full object-cover border-4 border-white shadow-lg mx-auto block"></img>
                 <h1 className='font-semibold'>Hi, I'm Jun!</h1>
                 三三ᕕ( ᐛ )ᕗ
@@ -27,13 +26,13 @@ function Homepage(){
                 <li className="mt-2 self-start text-left">
                     EFS Developer @ WARG
                 </li>
+                
                 <li className="mt-2 self-start text-left">
                     Learning STM32!
                 </li>
 
-                
-            </PageContainer>
-        </>
+                <p className="mt-6 self-start text-left">Thanks for visiting!</p>
+        </div>
     )
 }
 
