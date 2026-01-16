@@ -46,8 +46,8 @@ function Blog() {
               onClick={() => handleClick(item)}
             >
               {/* TEXT (left on desktop) */}
-              <div className="flex-1 p-4 sm:p-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600">
+              <div className="flex-1 p-4 sm:p-6 text-left">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 text-left">
                   {item.title}
                 </h3>
 

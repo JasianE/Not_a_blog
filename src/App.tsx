@@ -10,6 +10,7 @@ import BlogItem from './pages/blog/BlogItem'
 import CreateBlogPage from './pages/blog/CreateBlogPage'
 import ProjectPage from './pages/projects/ProjectPage'
 import PageCardLayout from './components/molecules/Container'
+import Now from './pages/now/Now'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path = '/blog/:blogKey' element={<BlogItem/>} />
           <Route path = '/create' element={<CreateBlogPage />} />
           <Route path = '/projects' element={<ProjectPage />} />
+          <Route path = '/now' element={<Now />} />
         </Routes>
     </>
   )

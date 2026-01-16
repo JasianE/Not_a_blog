@@ -24,8 +24,6 @@ function BlogItem() {
     });
   }
 
-
-
   return (
     <div className=" -mt-36">
 
