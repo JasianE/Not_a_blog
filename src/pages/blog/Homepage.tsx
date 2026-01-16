@@ -1,10 +1,11 @@
-import Button from '@mui/material/Button';
-import { useGetBlogsQuery } from '../../app/slices/blogApi';
-import { useEffect } from 'react';
-import PageContainer from '../../components/molecules/PageContainer';
+import React from 'react';
+import CardDropDown from '../../components/molecules/CardDropDown';
+import type { CardProps } from '../../components/molecules/CardDropDown';
+import { useGetProjectsQuery } from '../../app/slices/projects/projectApi';
 
 
 function Homepage(){
+    const {data, isLoading, isError, error} = useGetProjectsQuery();
     
     return(
         <div className="mt-26">
@@ -24,14 +25,16 @@ function Homepage(){
                     Full Stack Dev for CEL @ UWaterloo
                 </li>
                 <li className="mt-2 self-start text-left">
-                    EFS Developer @ WARG
+                    Developing embedded flight software @ WARG
                 </li>
-                
                 <li className="mt-2 self-start text-left">
                     Learning STM32!
                 </li>
 
                 <p className="mt-6 self-start text-left">Thanks for visiting!</p>
+
+                <h1 className='mt-30'>Featured Projects</h1>
+                <CardDropDown data={data as CardProps[]} isLoading={isLoading} isError={isError} />
         </div>
     )
 }
