@@ -6,6 +6,9 @@ import { useGetProjectsQuery } from '../../app/slices/projects/projectApi';
 
 function Homepage(){
     const {data, isLoading, isError, error} = useGetProjectsQuery();
+
+    //Known bugs:
+    // RTK query is only fetching data from project, so when you go to a tab directly it breaks, might wanna fix that? hahha cool tho
     
     return(
         <div className="mt-26">

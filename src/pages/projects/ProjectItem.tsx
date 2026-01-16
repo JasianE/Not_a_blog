@@ -1,22 +1,50 @@
-import React from "react";
 
-function ProjectItem(){
-    return(
-        <div className="flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
-            <img className="w-full h-auto rounded-t-xl" src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80" alt="Card Image" />
-            <div className="p-4 md:p-5">
-                <h3 className="text-lg font-bold text-gray-800 dark:text-white">
-                Card title
-                </h3>
-                <p className="mt-1 text-gray-500 dark:text-neutral-400">
-                Some quick example text to build on the card title and make up the bulk of the card's content.
-                </p>
-                <a className="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="#">
-                Go somewhere
-                </a>
-            </div>
-        </div>
-    )
+import React from "react";
+import { useParams, useNavigate } from "react-router";
+import { useGetProjectsQuery } from "../../app/slices/projects/projectApi";
+
+function ProjectItem() {
+  const { projectKey } = useParams();
+  const { data, isLoading, isError } = useGetProjectsQuery();
+
+  const projectOfInterest = data?.find((item) => item.id == projectKey);
+
+  const handleClick = () => {
+    if (projectOfInterest?.src) {
+      window.location.href = projectOfInterest.src;
+    }
+  };
+
+  if (isLoading) return <div className="mt-20 text-center">Loading…</div>;
+  if (isError || !projectOfInterest)
+    return <div className="mt-20 text-center text-red-600">Project not found.</div>;
+
+  return (
+    <div className="mt-20 flex flex-col items-center px-4">
+
+      {/* TITLE */}
+      <h1 className="text-4xl font-bold text-gray-900 dark:text-white text-center">
+        {projectOfInterest.title}
+      </h1>
+
+      {/* IMAGE */}
+      <div className="mt-10 w-full max-w-3xl rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-neutral-700">
+        <img src={projectOfInterest.src}></img>
+      </div>
+
+      {/* BUTTON */}
+      <button
+        onClick={handleClick}
+        className="
+          mt-10 px-6 py-3 rounded-lg font-medium
+          bg-blue-600 text-black hover:bg-blue-700
+          transition shadow-sm hover:shadow-md
+        "
+      >
+        View Project
+      </button>
+    </div>
+  );
 }
 
 export default ProjectItem;
