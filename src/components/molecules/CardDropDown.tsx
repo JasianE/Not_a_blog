@@ -10,7 +10,6 @@ export type CardDropDownProps = {
 
 function CardDropDown(Cards : CardDropDownProps[],) {
     const {data, isLoading, isError} = Cards;
-    
 
     return(
         <div className="mt-12">
