@@ -1,10 +1,5 @@
-import React from 'react';
-import CardDropDown from '../../components/molecules/CardDropDown';
-import type { CardProps } from '../../components/molecules/CardDropDown';
-import { useGetProjectsQuery } from '../../app/slices/projects/projectApi';
 import jun from '../../../public/jun.jpg';
 function Homepage(){
-    const {data, isLoading, isError, error} = useGetProjectsQuery();
 
     //Known bugs:
     // RTK query is only fetching data from project, so when you go to a tab directly it breaks, might wanna fix that? hahha cool tho
