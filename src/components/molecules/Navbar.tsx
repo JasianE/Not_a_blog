@@ -8,7 +8,6 @@ function Navbar() {
   const links = [
     { to: "/", label: "Home" },
     { to: "/projects", label: "Projects" },
-    { to: "/blog", label: "Blog" },
     { to: "/now", label: "Now" },
   ];
 

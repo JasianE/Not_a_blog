@@ -1,10 +1,4 @@
-
-import React from "react";
-import { useGetBlogsQuery } from "../../app/slices/blogApi";
-import type { Blog } from "../../types";
-import { useNavigate } from "react-router";
 import { useGetProjectsQuery, type Card } from "../../app/slices/projects/projectApi";
-
 
 function ProjectPage() {
   const { data, isLoading, isError } = useGetProjectsQuery();
@@ -13,7 +7,6 @@ function ProjectPage() {
     window.location.href = item.link;
   };
 
-  console.log(data)
   if (isLoading) return <div className="mt-10 text-center">Loading...</div>;
   if (isError) return <div className="mt-10 text-center">Something went wrong.</div>;
 
