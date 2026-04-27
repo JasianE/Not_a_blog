@@ -16,13 +16,13 @@ function Homepage(){
                 </p>
             
                 <li className="mt-8 self-start text-left">
-                    Full Stack Dev for CEL @ UWaterloo
+                    (Former) Full Stack Dev for CEL @ UWaterloo
                 </li>
                 <li className="mt-2 self-start text-left">
                     Developing firmware @ WARG
                 </li>
                 <li className="mt-2 self-start text-left">
-                    Learning Embedded Programming! 
+                    Getting better at embedded programming! 
                 </li>
 
                 <p className="mt-6 self-start text-left">Thanks for visiting!</p>
