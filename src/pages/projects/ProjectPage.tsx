@@ -25,7 +25,7 @@ function ProjectPage() {
             <div
             key={item.id}
             onClick={() => handleClick(item)}
-            className="cursor-pointer rounded-xl overflow-hidden bg-white border border-gray-200 shadow-sm 
+            className="group cursor-pointer rounded-xl overflow-hidden bg-white border border-gray-200 shadow-sm 
                         hover:shadow-md transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
             >
             {/* IMAGE */}
@@ -36,7 +36,7 @@ function ProjectPage() {
                     "https://images.unsplash.com/photo-1680868543815-b8666dba60f7?auto=format&fit=crop&w=800&q=60"
                 }
                 alt={item.title}
-                className="w-70 h-100 object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
             </div>
 

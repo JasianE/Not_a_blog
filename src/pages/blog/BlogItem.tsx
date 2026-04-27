@@ -25,7 +25,7 @@ function BlogItem() {
   }
 
   return (
-    <div className=" -mt-36">
+    <div className="mt-12 sm:mt-16">
 
       {/* CENTER COLUMN (blog content) */}
       <div className="mx-auto max-w-2xl w-300">
