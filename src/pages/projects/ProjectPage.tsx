@@ -13,6 +13,7 @@ function ProjectPage() {
     navigate(`/project/${item.id}`);
   };
 
+  console.log(data)
   if (isLoading) return <div className="mt-10 text-center">Loading...</div>;
   if (isError) return <div className="mt-10 text-center">Something went wrong.</div>;
 
@@ -32,7 +33,7 @@ function ProjectPage() {
             <div className="h-40 w-full overflow-hidden bg-gray-100 dark:bg-neutral-800">
                 <img
                 src={
-                    item.coverImg ??
+                    item.img ??
                     "https://images.unsplash.com/photo-1680868543815-b8666dba60f7?auto=format&fit=crop&w=800&q=60"
                 }
                 alt={item.title}
