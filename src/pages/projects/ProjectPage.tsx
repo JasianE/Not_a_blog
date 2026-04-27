@@ -7,6 +7,8 @@ function ProjectPage() {
     window.location.href = item.link;
   };
 
+  //https://portfoliojunli.web.app/
+  
   if (isLoading) return <div className="mt-10 text-center">Loading...</div>;
   if (isError) return <div className="mt-10 text-center">Something went wrong.</div>;
 
