@@ -5,8 +5,7 @@ export type Card = {
     title: string,
     description: string,
     link: string,
-    src: string,
-    id: string
+    id: number
 };
 
 // I guess this would make sense if I had like a central server that hosted everything i ever wanted to fetch, 
