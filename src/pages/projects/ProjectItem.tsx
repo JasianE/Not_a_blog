@@ -1,6 +1,5 @@
 
-import React from "react";
-import { useParams, useNavigate } from "react-router";
+import { useParams } from "react-router";
 import { useGetProjectsQuery } from "../../app/slices/projects/projectApi";
 
 function ProjectItem() {
@@ -11,7 +10,7 @@ function ProjectItem() {
 
   const handleClick = () => {
     if (projectOfInterest?.src) {
-      window.location.href = projectOfInterest.src;
+      window.location.href = projectOfInterest.link;
     }
   };
 
@@ -20,7 +19,7 @@ function ProjectItem() {
     return <div className="mt-20 text-center text-red-600">Project not found.</div>;
 
   return (
-    <div className="mt-20 flex flex-col items-center px-4">
+    <div className="flex flex-col items-center px-4">
 
       {/* TITLE */}
       <h1 className="text-4xl font-bold text-gray-900 dark:text-white text-center">
@@ -28,7 +27,7 @@ function ProjectItem() {
       </h1>
 
       {/* IMAGE */}
-      <div className="mt-10 w-full max-w-3xl rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-neutral-700">
+      <div className="mt-10 w-100 max-w-2xl rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-neutral-700">
         <img src={projectOfInterest.src}></img>
       </div>
 

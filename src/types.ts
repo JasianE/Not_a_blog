@@ -5,5 +5,7 @@ export interface Blog {
   content: string;
   createdAt: string;
   tags: string[];
+  link: string;
+  img: string
 }
 

@@ -1,5 +1,3 @@
-
-import React from "react";
 import { useGetBlogsQuery } from "../../app/slices/blogApi";
 import type { Blog } from "../../types";
 import { useNavigate } from "react-router";
@@ -9,6 +7,7 @@ function Blog() {
   const { data, isLoading, isError } = useGetBlogsQuery();
   const navigate = useNavigate();
 
+  console.log(data)
   const handleClick = (item: Blog) => {
     navigate(`/blog/${item.id}`);
   };
@@ -25,7 +24,7 @@ function Blog() {
 
   return (
     <PageContainer>
-        <h1 className="mt-12">Blog</h1>
+        <h1 className="">Blog</h1>
         <h2 className="mt-12">Take a look inside mah dome</h2>
       <div>
         {isLoading && "loading..."}
@@ -73,7 +72,7 @@ function Blog() {
               >
                 <img
                   className="absolute inset-0 w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?auto=format&fit=crop&w=560&q=80"
+                  src={item.img}
                   alt={item.title}
                 />
               </div>
