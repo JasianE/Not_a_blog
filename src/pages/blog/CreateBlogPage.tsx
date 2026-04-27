@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useAddBlogMutation } from "../../app/slices/blogApi";
 import type {newBlog} from "../../app/slices/blogApi";
 
-
 const BlogPostForm: React.FC = () => {
   const [formData, setFormData] = useState<newBlog>({
     title: "",

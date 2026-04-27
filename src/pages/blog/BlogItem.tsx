@@ -1,5 +1,3 @@
-
-import React from "react";
 import { useGetBlogsQuery } from "../../app/slices/blogApi";
 import { useParams, useNavigate } from "react-router";
 

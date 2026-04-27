@@ -1,9 +1,6 @@
-import jun from '../../../public/jun.jpg';
+import jun from '../assets/jun.jpg';
 function Homepage(){
 
-    //Known bugs:
-    // RTK query is only fetching data from project, so when you go to a tab directly it breaks, might wanna fix that? hahha cool tho
-    
     return(
         <div className="mt-26">
                 <img src={jun} className="h-32 w-32 rounded-full object-cover border-4 border-white shadow-lg mx-auto block"></img>
@@ -22,10 +19,10 @@ function Homepage(){
                     Full Stack Dev for CEL @ UWaterloo
                 </li>
                 <li className="mt-2 self-start text-left">
-                    Developing firmware @ Midnight Sun
+                    Developing firmware @ WARG
                 </li>
                 <li className="mt-2 self-start text-left">
-                    Learning Embedded Programming w/ Miro Samek's course! (the goat)
+                    Learning Embedded Programming! 
                 </li>
 
                 <p className="mt-6 self-start text-left">Thanks for visiting!</p>
