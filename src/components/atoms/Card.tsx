@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 type CardProps = {
     title: string,
     img: string,
@@ -5,32 +7,43 @@ type CardProps = {
 }
 
 function Card(data: CardProps) {
+    const [isExpanded, setIsExpanded] = useState(false);
     console.log(data)
+    
+    const handleCardClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setIsExpanded(!isExpanded);
+    };
     
     return (
         <div className="mt-8">
-            <a
+            <div
             className="block w-full max-w-md mx-auto bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden 
-                        hover:shadow-md transition dark:bg-neutral-900 dark:border-neutral-700"
-            href="#"
+                        hover:shadow-md transition dark:bg-neutral-900 dark:border-neutral-700 cursor-pointer"
+            onClick={handleCardClick}
             >
 
             {/* Image wrapper with normal aspect ratio */}
             <div className="w-full h-60 overflow-hidden">
-                <img src= {data.img}></img>
+                <img src={data.img}></img>
             </div>
 
             {/* Content */}
-            <div className="p-4 bg-gray-100 h-30">
+            <div className="p-4 bg-gray-100 dark:bg-neutral-800">
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-white text-left">
                 {data.title}
                 </h3>
-                <p className="mt-1 text-gray-500 dark:text-neutral-400 text-left">
+                <p className={`mt-1 text-gray-500 dark:text-neutral-400 text-left transition-all duration-300 ${isExpanded ? '' : 'line-clamp-3'}`}>
                 {data.description}
                 </p>
+                {!isExpanded && data.description.split('\n').length > 1 && (
+                    <p className="mt-2 text-sm text-blue-600 dark:text-blue-400 font-semibold">
+                        Click to expand
+                    </p>
+                )}
             </div>
 
-            </a>
+            </div>
         </div>
     )
 }

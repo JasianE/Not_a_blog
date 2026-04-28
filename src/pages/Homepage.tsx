@@ -22,6 +22,9 @@ function Homepage(){
                     Developing firmware @ WARG
                 </li>
                 <li className="mt-2 self-start text-left">
+                    Building pipelines and spinning up servers (also setting up my homelab)
+                </li>
+                <li className="mt-2 self-start text-left">
                     Getting better at embedded programming! 
                 </li>
 

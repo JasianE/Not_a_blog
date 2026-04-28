@@ -23,7 +23,10 @@ function Now(){
                 Hit 1000+ pounds accross squat (375), bench (225) deadlift (420)! 
             </li>
             <li className="text-left mt-2 max-w-sm break-words">
-                Placed top 8 for the first time at my local smash weekly! 
+                Placed top 8 for the first time at my local <DefinitionTooltip
+              term="smash"
+              definition="I main piranha plant but ended up getting top 8 with DK 😭"
+            />{" "} weekly! 
             </li>
             
             <li className="text-left mt-2 max-w-sm break-words">

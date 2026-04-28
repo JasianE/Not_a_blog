@@ -1,9 +1,13 @@
 import doomspray from "../../assets/doomspray.png";
 import portfolio from "../../assets/portfolio.png";
 import DefinitionTooltip from "../../components/atoms/DefinitionTooltip";
+import movietime from '../../assets/movietime.png';
 import type { Card } from "../../app/slices/projects/projectApi";
+import { useState } from "react";
 
 function ProjectPage() {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+  
   const data = [
   {
     title: "Engagemint",
@@ -14,9 +18,9 @@ function ProjectPage() {
   },
   {
     title: "MovieTime",
-    description: "Webpage for sharing movie recommendations w/ your friends :)",
-    img: "https://ssb.wiki.gallery/images/thumb/9/9e/ESAM_with_Pikachu.jpg/1200px-ESAM_with_Pikachu.jpg",
-    link: "https://github.com/JasianE/MovieTime",
+    description: "Webpage for sharing movie recommendations w/ your friends! Built to learn .NET and typescript. Deployed w/ Azure services. GenAI helped me merge my designs from my friend's Figma via MCP!",
+    img: movietime,
+    link: "https://movietime-livid.vercel.app/",
     id: 2
   },
   {
@@ -28,35 +32,45 @@ function ProjectPage() {
   },
   {
     title: "AroundU",
-    description: "Making campus connection even easier. Built fully with generative AI using the MCP protocol!",
+    description: "Making campus connection even easier. Built fully with generative AI using the MCP protocol and SDD (spec driven development)! Used Typescript, React, and Tailwind.css .",
     img: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/004/437/737/datas/original.png",
     link: "https://devpost.com/software/campuspulse-mgyufq",
     id: 4
   },
   {
     title: "UtraHacks Path Following Robot",
-    description: "A big test on how to apply what I learned in embedded development + an introduction to control systems! ",
+    description: "A big test on how to apply what I learned in embedded development + an introduction to control systems! Built w/ an Arduino Uno, and incoporated IR sensors, motor controllers, ultrasonic sensors. Had to use SPI to communicate between peripherals and required PWM values to be read! ",
     img: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/004/231/619/datas/gallery.jpg",
     link: "https://devpost.com/software/goon-machine",
     id: 5
   }, 
   {
     title: "Doomspray",
-    description: "My first ever hardware project / hack! Coolest expereince eva",
+    description: "My first ever hardware project / hack! Built using an Arduino, custom 3d printed case, and connected w/ a React + Tailwind chrome extension + Node.Js backend + MongoDB to track web data. Coolest expereince eva.",
     img: doomspray,
     link: "https://dorahacks.io/buidl/26394",
     id: 6
   },
   {
     title: "My old high school portfolio!",
-    description: "My first portfolio I made after finishing The Odin Project, my first foray into programming. Has all my old projects!",
+    description: "My first portfolio I made after finishing The Odin Project, my first foray into programming. Built w/ React and Tailwindcss. Has all my old projects!",
     img: portfolio,
     link: "https://portfoliojunli.web.app/",
     id: 7
   }
 ];
-  const handleClick = (item: Card) => { // Use blog type as project
-    window.location.href = item.link;
+  
+  const handleCardClick = (item: Card, e: React.MouseEvent) => {
+    e.stopPropagation();
+    
+    const isExpanded = expandedId === item.id;
+    if (isExpanded) {
+      // If already expanded, clicking again navigates to link
+      window.location.href = item.link;
+    } else {
+      // First click expands the card
+      setExpandedId(item.id);
+    }
   };
 
   return (
@@ -75,7 +89,7 @@ function ProjectPage() {
         {data?.map((item) => (
             <div
             key={item.id}
-            onClick={() => handleClick(item)}
+            onClick={(e) => handleCardClick(item, e)}
             className="group cursor-pointer rounded-xl overflow-hidden bg-white border border-gray-200 shadow-sm 
                         hover:shadow-md transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
             >
@@ -95,9 +109,14 @@ function ProjectPage() {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                 {item.title}
                 </h3>
-                <p className="mt-1 text-sm text-gray-600 dark:text-neutral-400 line-clamp-3">
+                <p className={`mt-1 text-sm text-gray-600 dark:text-neutral-400 transition-all duration-300 ${expandedId === item.id ? '' : 'line-clamp-3'}`}>
                 {item.description ?? "No description provided."}
                 </p>
+                {expandedId === item.id && (
+                    <p className="mt-2 text-xs text-blue-600 dark:text-blue-400 font-semibold">
+                        Click again to open link →
+                    </p>
+                )}
             </div>
             </div>
         ))}
