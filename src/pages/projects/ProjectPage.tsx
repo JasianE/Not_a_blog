@@ -32,7 +32,7 @@ function ProjectPage() {
   },
   {
     title: "AroundU",
-    description: "Making campus connection even easier. Built fully with generative AI using the MCP protocol and SDD (spec driven development)! Used Typescript, React, and Tailwind.css .",
+    description: "Making campus connection even easier. Built fully with generative AI using the MCP protocol and SDD (spec driven development)! Used Typescript, React, and Tailwind.css.",
     img: "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/004/437/737/datas/original.png",
     link: "https://devpost.com/software/campuspulse-mgyufq",
     id: 4
@@ -74,10 +74,10 @@ function ProjectPage() {
   };
 
   return (
-    <div className="mt-16">
-        <h1>Projects</h1>
+    <div className="mt-14 sm:mt-16 lg:mt-16 px-2 sm:px-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl">Projects</h1>
         <span>
-          <h2 className="mt-6">
+          <h2 className="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-2xl">
             <DefinitionTooltip
               term="Rice cooker method"
               definition="When you cook your rice with frozen veggies, discount meat, and your sacrificed taste buds, for optimized nutrition."
@@ -85,7 +85,7 @@ function ProjectPage() {
             helped me make these
           </h2>
         </span>
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {data?.map((item) => (
             <div
             key={item.id}

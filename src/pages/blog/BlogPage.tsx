@@ -24,8 +24,8 @@ function Blog() {
 
   return (
     <PageContainer>
-        <h1 className="">Blog</h1>
-        <h2 className="mt-12">Take a look inside mah dome</h2>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl">Blog</h1>
+        <h2 className="mt-8 sm:mt-12 text-lg sm:text-xl lg:text-2xl">Take a look inside mah dome</h2>
       <div>
         {isLoading && "loading..."}
         {isError && "Something went wrong."}

@@ -72,23 +72,23 @@ function ProjectItem() {
 
 
   return (
-    <div className="flex flex-col items-center px-4">
+    <div className="flex flex-col items-center px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12 lg:mt-16">
 
       {/* TITLE */}
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white text-center">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white text-center">
         {projectOfInterest?.title}
       </h1>
 
       {/* IMAGE */}
-      <div className="mt-10 w-100 max-w-2xl rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-neutral-700">
-        <img src={projectOfInterest?.img}></img>
+      <div className="mt-6 sm:mt-8 lg:mt-10 w-full max-w-2xl rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-neutral-700">
+        <img src={projectOfInterest?.img} alt={projectOfInterest?.title}></img>
       </div>
 
       {/* BUTTON */}
       <button
         onClick={handleClick}
         className="
-          mt-10 px-6 py-3 rounded-lg font-medium
+          mt-6 sm:mt-8 lg:mt-10 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
           bg-blue-600 text-black hover:bg-blue-700
           transition shadow-sm hover:shadow-md
         "

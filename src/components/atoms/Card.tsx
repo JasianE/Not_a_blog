@@ -16,7 +16,7 @@ function Card(data: CardProps) {
     };
     
     return (
-        <div className="mt-8">
+        <div className="mt-6 sm:mt-8">
             <div
             className="block w-full max-w-md mx-auto bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden 
                         hover:shadow-md transition dark:bg-neutral-900 dark:border-neutral-700 cursor-pointer"
@@ -24,20 +24,20 @@ function Card(data: CardProps) {
             >
 
             {/* Image wrapper with normal aspect ratio */}
-            <div className="w-full h-60 overflow-hidden">
-                <img src={data.img}></img>
+            <div className="w-full h-40 sm:h-48 lg:h-60 overflow-hidden">
+                <img src={data.img} alt={data.title}></img>
             </div>
 
             {/* Content */}
-            <div className="p-4 bg-gray-100 dark:bg-neutral-800">
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-white text-left">
+            <div className="p-3 sm:p-4 bg-gray-100 dark:bg-neutral-800">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white text-left">
                 {data.title}
                 </h3>
-                <p className={`mt-1 text-gray-500 dark:text-neutral-400 text-left transition-all duration-300 ${isExpanded ? '' : 'line-clamp-3'}`}>
+                <p className={`mt-1 text-sm text-gray-500 dark:text-neutral-400 text-left transition-all duration-300 ${isExpanded ? '' : 'line-clamp-3'}`}>
                 {data.description}
                 </p>
                 {!isExpanded && data.description.split('\n').length > 1 && (
-                    <p className="mt-2 text-sm text-blue-600 dark:text-blue-400 font-semibold">
+                    <p className="mt-2 text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-semibold">
                         Click to expand
                     </p>
                 )}

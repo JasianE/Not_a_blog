@@ -12,12 +12,12 @@ function Navbar() {
   ];
 
   return (
-    <header className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none">
+    <header className="fixed top-2 sm:top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-2">
       {/* Centered nav container */}
-      <div className="pointer-events-auto bg-white/80 backdrop-blur-md shadow-sm border border-gray-200 w-[32rem] max-w-[90%] h-14 rounded-xl flex items-center justify-center">
+      <div className="pointer-events-auto bg-white/80 backdrop-blur-md shadow-sm border border-gray-200 w-full sm:w-[32rem] max-w-[90%] sm:max-w-none h-12 sm:h-14 rounded-xl flex items-center justify-center">
         
         {/* Nav items */}
-        <nav className="flex items-center gap-6 text-[0.95rem]">
+        <nav className="flex items-center gap-3 sm:gap-6 text-[0.85rem] sm:text-[0.95rem]">
           {links.map((link, index) => (
             <React.Fragment key={link.to}>
               <Link
